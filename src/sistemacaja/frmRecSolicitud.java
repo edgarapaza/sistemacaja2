@@ -857,12 +857,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,e + "mal2");
             }
             this.txtPrecioUnitarioTestimonio.setText(costo);
-            int cantidad = Integer.parseInt(this.txtCantidadTestimonio.getText());
-            double precio = Double.parseDouble(this.txtPrecioUnitarioTestimonio.getText());
             
-            double total = this.HallarTotal(cantidad, precio);
-            float rpta = (float) (Math.rint(total*10)/10);
-            this.txtTotalTestimonio.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -894,11 +889,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,e + "mal2");
             }
             this.txtPrecioUnitarioCopiaSimple.setText(costo);
-            int cantidad = Integer.parseInt(this.txtCantidadCopiaSimple.getText());
-            double precio = Double.parseDouble(this.txtPrecioUnitarioCopiaSimple.getText());
-            
-            double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCopiaSimple.setText(total+"");
+           
             
             this.SumaTotal();
         }
@@ -1219,7 +1210,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioTestimonio.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalTestimonio.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalTestimonio.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadTestimonioKeyPressed
 
@@ -1228,7 +1220,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioCopiaSimple.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCopiaSimple.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalCopiaSimple.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadCopiaSimpleKeyPressed
 
@@ -1237,7 +1230,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioCopiaCertificada.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCopiaCertificada.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalCopiaCertificada.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadCopiaCertificadaKeyPressed
 
@@ -1246,7 +1240,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioCCPartidas.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCCPartidas.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalCCPartidas.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadCCPartidasKeyPressed
 
@@ -1255,7 +1250,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioConstancia.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalConstancia.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalConstancia.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadConstanciaKeyPressed
 
@@ -1264,7 +1260,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioExhibicion.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalExhibicion.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalExhibicion.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadExhibicionKeyPressed
 
@@ -1273,7 +1270,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioFotocopias.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalFotocopias.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalFotocopias.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadFotocopiasKeyPressed
 
@@ -1282,7 +1280,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioTramiteAdministrativo.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalTramiteAdministrativo.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalTramiteAdministrativo.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadTramiteAdministrativoKeyPressed
 
@@ -1398,8 +1397,9 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioOtros.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalOtros.setText(total+"");
-            this.SumaTotal();
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalOtros.setText(rpta+"");
+           this.SumaTotal();
     }//GEN-LAST:event_txtPrecioUnitarioOtrosKeyPressed
 
     private void txtEfectivoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyPressed
@@ -1852,7 +1852,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(rootPane, "activo");
             // Declarando variables y capturando valores de cada line en el recibo
-            String concepto = this.chkOtros.getText();
+            String concepto = this.txtOtros.getText();
+            
             double cantidad = Double.parseDouble(this.txtCantidadOtros.getText());
             double precio   = Double.parseDouble(this.txtPrecioUnitarioOtros.getText());
             double subtotal = Double.parseDouble(this.txtTotalOtros.getText());
