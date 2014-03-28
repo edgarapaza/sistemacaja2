@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="320" pageHeight="450" columnWidth="280" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="186"/>
+	<property name="ireport.y" value="366"/>
+	<subDataset name="New Dataset 1">
+		<queryString>
+			<![CDATA[select 
+r.numRec, r.total,r.fecha,
+
+d.concepto, d.subtotal, d.cantidad, d.pUnitario,
+
+s.codSol, 
+
+concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
+
+from detallerecibo as d, solicitudes as s, usuarios as u, recibo as r
+where r.numSol = s.codSol and
+      u.codUsu = s.codUsu and
+	  	
+	  r.numRec = d.numRecibo and
+      r.numRec = 12;]]>
+		</queryString>
+		<field name="numRec" class="java.lang.Integer"/>
+		<field name="total" class="java.lang.Double"/>
+		<field name="fecha" class="java.sql.Date"/>
+		<field name="concepto" class="java.lang.String"/>
+		<field name="subtotal" class="java.lang.Double"/>
+		<field name="cantidad" class="java.lang.Integer"/>
+		<field name="pUnitario" class="java.lang.Double"/>
+		<field name="codSol" class="java.lang.Integer"/>
+		<field name="nombre" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[select 
+r.numRec, r.total,r.fecha,
+
+d.concepto, d.subtotal, d.cantidad, d.pUnitario,
+
+s.codSol, 
+
+concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
+
+from detallerecibo as d, solicitudes as s, usuarios as u, recibo as r
+where r.numSol = s.codSol and
+      u.codUsu = s.codUsu and
+	  	
+	  r.numRec = d.numRecibo and
+      r.numRec = 00012;]]>
+	</queryString>
+	<field name="numRec" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="concepto" class="java.lang.String"/>
+	<field name="subtotal" class="java.lang.Double"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="pUnitario" class="java.lang.Double"/>
+	<field name="codSol" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<textField>
+				<reportElement x="53" y="109" width="227" height="20"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="false"/>
+					<paragraph firstLineIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="81" width="78" height="20"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codSol}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="172" y="0" width="27" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pUnitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="52" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="0" width="28" height="13"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="0" width="77" height="13"/>
+				<textElement>
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="35" y="56" width="100" height="13"/>
+				<textElement>
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="9" width="45" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
