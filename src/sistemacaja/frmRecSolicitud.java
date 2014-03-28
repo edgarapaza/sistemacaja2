@@ -46,8 +46,11 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double n = Double.parseDouble(this.txtTotalPeritaje.getText());
         double o = Double.parseDouble(this.txtTotalOtros.getText());
         
+        
         double suma = a+b+c+d+e+f+g+h+i+j+k+l+m+n+o;
-        this.txtTotal.setText(suma+"");
+        //Redondear
+        float rpta = (float) (Math.rint(suma*10)/10);
+        this.txtTotal.setText(rpta+"");
     }
 
 
@@ -60,7 +63,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
               double y = Double.parseDouble(this.txtTotal.getText());
               double resta = z-y;
               
-              this.lbCambia.setText(resta+"");
+              float rpta = (float) (Math.rint(resta*10)/10);
+              this.lbCambia.setText(rpta+"");
             
           }   
     
