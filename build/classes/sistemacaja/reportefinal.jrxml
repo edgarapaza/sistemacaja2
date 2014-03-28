@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="450" pageHeight="842" columnWidth="410" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+		<queryString>
+			<![CDATA[select concat(u.nombre, ' ', u.apePat, ' ', u.apeMat) as nombre, d.numRecibo, d.concepto, d.cantidad, d.pUnitario, d.subtotal, d.fecha from detallerecibo as d, usuarios as u;]]>
+		</queryString>
+		<field name="nombre" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="numRecibo" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="concepto" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="cantidad" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="pUnitario" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="subtotal" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fecha" class="java.sql.Date">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[select concat(u.nombre, ' ', u.apePat, ' ', u.apeMat) as nombre, d.numRecibo, d.concepto, d.cantidad, d.pUnitario, d.subtotal, d.fecha from detallerecibo as d, usuarios as u;]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="numRecibo" class="java.lang.Integer"/>
+	<field name="concepto" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="pUnitario" class="java.lang.Double"/>
+	<field name="subtotal" class="java.lang.Double"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="91" splitType="Stretch">
+			<textField>
+				<reportElement x="215" y="71" width="100" height="20" uuid="f9ad6572-341f-4c43-b3a4-a125da8a3833"/>
+				<textFieldExpression><![CDATA[$F{numRecibo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="71" width="200" height="20" uuid="106ca9ef-43ea-4bb5-9521-7b878332f528"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="40" height="53" uuid="f082a90a-f265-448f-999d-4f3075e2e988"/>
+				<imageExpression><![CDATA["/home/informatica/NetBeansProjects/sistemacaja/src/siscajaImagenes/LogoARP_Small.gif"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="215" y="0" width="55" height="69" uuid="e07912e9-c3f7-457b-9a6e-4acf1d259ed4"/>
+				<imageExpression><![CDATA["/home/informatica/NetBeansProjects/sistemacaja/src/siscajaImagenes/Escudo-Region-Puno_1.gif"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="caf1ed9e-0bdf-43bd-b33f-729e685929e5"/>
+				<text><![CDATA[concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="e67b0079-559a-4b49-9bf0-863d42416de3"/>
+				<text><![CDATA[cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="a9f1b2a2-b17b-4b96-a855-93f2b0f8d18a"/>
+				<text><![CDATA[pUnitario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="56081b90-fc32-4754-926a-e6f98a974e1b"/>
+				<text><![CDATA[subtotal]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2aef150a-cc39-4e10-9bc8-2e70a76f7fef"/>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="03c7a22f-74d0-45ab-8a19-6b98287ffbee"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="a1ec0609-c5ab-4e51-8203-7468abcb6bbe"/>
+				<textFieldExpression><![CDATA[$F{pUnitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="5e50f9ad-e1bf-4c9b-8cd5-bd563eee3cc9"/>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="34" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="298" y="22" width="100" height="20" uuid="9e5d51f3-5062-4a74-aecb-32e41ad9842f"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

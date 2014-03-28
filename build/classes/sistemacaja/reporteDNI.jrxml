@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="coneccion">
+		<queryString language="SQL">
+			<![CDATA[select 
+r.numRec, r.total,r.fecha,
+
+d.concepto, d.subtotal, d.cantidad, d.pUnitario,
+
+u.numDoc, concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
+
+from detallerecibo as d, usuarios as u, recibo as r
+where r.numRec = d.numRecibo and
+	  r.codUsu = u.codUsu and
+      r.numRec = 12;]]>
+		</queryString>
+		<field name="numRec" class="java.lang.Integer"/>
+		<field name="total" class="java.lang.Double"/>
+		<field name="fecha" class="java.sql.Date"/>
+		<field name="concepto" class="java.lang.String"/>
+		<field name="subtotal" class="java.lang.Double"/>
+		<field name="cantidad" class="java.lang.Integer"/>
+		<field name="pUnitario" class="java.lang.Double"/>
+		<field name="numDoc" class="java.lang.String"/>
+		<field name="nombre" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[select 
+r.numRec, r.total,r.fecha,
+
+d.concepto, d.subtotal, d.cantidad, d.pUnitario,
+
+u.numDoc, concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
+
+from detallerecibo as d, usuarios as u, recibo as r
+where r.numRec = d.numRecibo and
+	  r.codUsu = u.codUsu and
+      r.numRec = 12;]]>
+	</queryString>
+	<field name="numRec" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="concepto" class="java.lang.String"/>
+	<field name="subtotal" class="java.lang.Double"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="pUnitario" class="java.lang.Double"/>
+	<field name="numDoc" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<image>
+				<reportElement x="234" y="0" width="45" height="54"/>
+				<imageExpression><![CDATA["C:\\Users\\Planificacion1\\Documents\\NetBeansProjects\\sistemacaja21\\src\\siscajaImagenes\\Escudo-Region-Puno_1.gif"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="0" y="0" width="40" height="54"/>
+				<imageExpression><![CDATA["C:\\Users\\Planificacion1\\Documents\\NetBeansProjects\\sistemacaja21\\src\\siscajaImagenes\\LogoARP_Small.gif"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="40" y="14" width="194" height="20" backcolor="#000033"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="13" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[GOBIERNO REGIONAL - PUNO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="34" width="171" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Adobe Naskh Medium" size="10"/>
+				</textElement>
+				<text><![CDATA[Archivo Regional de Puno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="54" width="161" height="53"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="10" isBold="false" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[JR. AREQUIPA N° 1143 - 1145
+Teléfono: 369510 - 363768 - 368846
+DL. N° 19414 y ley N° 25323
+www.archivoregionalpuno.gob.pe ]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="162" y="52" width="117" height="65"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="157" y="52" width="126" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC: 20406325815]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="156" y="58" width="126" height="49"/>
+				<textElement textAlignment="Center">
+					<font fontName="Humnst777 BlkCn BT" size="32"/>
+				</textElement>
+				<text><![CDATA[RECIBO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="186" y="97" width="79" height="20"/>
+				<textElement textAlignment="Left">
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numRec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="69" y="127" width="165" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+					<paragraph firstLineIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="169" y="97" width="17" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="107" width="52" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNI N°]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="127" width="69" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Recibi de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="107" width="100" height="20"/>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numDoc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="52" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement>
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="171" y="2" width="52" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P. UNIT.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="2" width="68" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="52" y="2" width="119" height="20"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[POR LO SIGUIENTE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="52" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="171" y="0" width="52" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{pUnitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="223" y="0" width="68" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="52" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="223" y="5" width="68" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="4" width="291" height="1"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
