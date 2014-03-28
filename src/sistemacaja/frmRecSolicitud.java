@@ -758,7 +758,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioBusqueda.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalBusqueda.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalBusqueda.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -860,7 +861,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioTestimonio.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalTestimonio.setText(total+"");
+            float rpta = (float) (Math.rint(total*10)/10);
+            this.txtTotalTestimonio.setText(rpta+"");
             
             this.SumaTotal();
         }
