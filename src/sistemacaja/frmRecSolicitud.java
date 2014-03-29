@@ -812,8 +812,10 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioCalificacion.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCalificacion.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalCalificacion.setText(rpta+"");
             
+
             this.SumaTotal();
         }
         else{
@@ -920,11 +922,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,e + "mal2");
             }
             this.txtPrecioUnitarioCopiaCertificada.setText(costo);
-            int cantidad = Integer.parseInt(this.txtCantidadCopiaCertificada.getText());
-            double precio = Double.parseDouble(this.txtPrecioUnitarioCopiaCertificada.getText());
             
-            double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCopiaCertificada.setText(total+"");
             
             this.SumaTotal();
         }
@@ -957,7 +955,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioCCPartidas.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalCCPartidas.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalCCPartidas.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -990,7 +989,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioConstancia.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalConstancia.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalConstancia.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -1023,7 +1023,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioExhibicion.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalExhibicion.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalExhibicion.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -1052,11 +1053,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,e + "mal2");
             }
             this.txtPrecioUnitarioFotocopias.setText(costo);
-            int cantidad = Integer.parseInt(this.txtCantidadFotocopias.getText());
-            double precio = Double.parseDouble(this.txtPrecioUnitarioFotocopias.getText());
             
-            double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalFotocopias.setText(total+"");
             
             this.SumaTotal();
         }
@@ -1089,7 +1086,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioTramiteAdministrativo.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalTramiteAdministrativo.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalTramiteAdministrativo.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -1122,7 +1120,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioRegularizacionEscritura.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalRegularizacionEscritura.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalRegularizacionEscritura.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -1159,7 +1158,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioTramiteRegistrosPublicos.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalTramiteRegistrosPublicos.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalTramiteRegistrosPublicos.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -1192,7 +1192,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioAnotacionMarginal.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalAnotacionMarginal.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalAnotacionMarginal.setText(rpta+"");
             
             this.SumaTotal();
         }
@@ -1317,7 +1318,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         double precio = Double.parseDouble(this.txtPrecioUnitarioPeritaje.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalPeritaje.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalPeritaje.setText(rpta+"");
             this.SumaTotal();
     }//GEN-LAST:event_txtCantidadPeritajeKeyPressed
 
@@ -1375,7 +1377,8 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             double precio = Double.parseDouble(this.txtPrecioUnitarioPeritaje.getText());
             
             double total = this.HallarTotal(cantidad, precio);
-            this.txtTotalPeritaje.setText(total+"");
+            float rpta = (float) (Math.rint(total*100)/100);
+            this.txtTotalPeritaje.setText(rpta+"");
             
             this.SumaTotal();
         }
