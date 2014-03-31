@@ -1948,6 +1948,9 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             ****************************************************************
             */
         }
+        
+        this.btnImprimir.setEnabled(true);
+        this.btnGuardar.setEnabled(false);
        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1960,6 +1963,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         // TODO add your handling code here:
         activa();
+        this.btnImprimir.setEnabled(false);
         try{
             con.conectar();
             ResultSet res=con.consulta("SELECT max(numRec) FROM recibo;");
@@ -1968,10 +1972,12 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             
             con.cierraConexion();
         }catch(SQLException e){
-            
+            JOptionPane.showMessageDialog(rootPane, e);
         }
         nextNumero = numeroRecibo + 1;
         this.lblNumeroRecibo.setText(nextNumero+"");
+        this.txtNumSolicitud.requestFocus();
+        
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
