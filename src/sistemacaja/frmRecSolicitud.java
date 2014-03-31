@@ -22,6 +22,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         initComponents();
         jasper=new PrintRecibo();
         
+        this.lblcodUsu.setVisible(false);
         desactiva();
 
     }
@@ -214,6 +215,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         lblcodUsu = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnReImprimir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 800));
@@ -776,6 +778,14 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
+
+        btnReImprimir.setText("Re imprimir");
+        btnReImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1986,6 +1996,12 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         desactiva();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void btnReImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReImprimirActionPerformed
+        // TODO add your handling code here:
+        String numeroRecibo = JOptionPane.showInputDialog("Escriba el Numero de Solicitud");
+        jasper.ejecutarReporte(numeroRecibo);
+    }//GEN-LAST:event_btnReImprimirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2027,6 +2043,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnReImprimir;
     private javax.swing.JCheckBox chkAnotacionMarginal;
     private javax.swing.JCheckBox chkBusqueda;
     private javax.swing.JCheckBox chkCCPartidas;
