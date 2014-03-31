@@ -30,9 +30,9 @@ public class conexion {
     //(meter los datos correspondientes)
     public conexion() {
         //poner los datos apropiados
-        this.usuario = "root";
-        this.clave = "admin";
-        this.url = "jdbc:mysql://localhost:3306/recepcion";
+        this.usuario = "usuario";
+        this.clave = "archivo123";
+        this.url = "jdbc:mysql://192.168.1.100:3306/recepcion";
         this.driverClassName = "com.mysql.jdbc.Driver";
     }
 

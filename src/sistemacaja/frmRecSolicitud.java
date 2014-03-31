@@ -13,13 +13,17 @@ import javax.swing.JOptionPane;
 public class frmRecSolicitud extends javax.swing.JFrame {
     
     int solic, esc;
+    int numeroRecibo =0, nextNumero=0;
     String costo;
     conexion con = new conexion();
-    
+    private PrintRecibo jasper;
 
     public frmRecSolicitud() {  //Constructor
         initComponents();
+        jasper=new PrintRecibo();
         
+        desactiva();
+
     }
     
     public double HallarTotal(int cantidad, double precio)
@@ -67,17 +71,60 @@ public class frmRecSolicitud extends javax.swing.JFrame {
               this.lbCambia.setText(rpta+"");
             
           }   
-    
     public void desactiva(){
-           
-            this.txtNumSolicitud.setEditable(false);
-            this.btnBuscarSolicitud.setEnabled(false);
-        }
+        //Desactiva todos los botones
+        this.txtNumSolicitud.setEnabled(false);
+        this.txtNombreUsuario.setEnabled(false);
+        
+        this.chkBusqueda.setEnabled(false);
+        this.chkCalificacion.setEnabled(false);
+        this.chkTestimonio.setEnabled(false);
+        this.chkCopiaSimple.setEnabled(false);
+        this.chkCopiaCertificada.setEnabled(false);
+        this.chkCCPartidas.setEnabled(false);
+        this.chkConstancia.setEnabled(false);
+        this.chkExhibicion.setEnabled(false);
+        this.chkFotocopias.setEnabled(false);
+        this.chkTramiteAdministrativo.setEnabled(false);
+        this.chkRegularizacionEscritura.setEnabled(false);
+        this.chkTramiteRegistrosPublicos.setEnabled(false);
+        this.chkAnotacionMarginal.setEnabled(false);
+        this.chkPeritaje.setEnabled(false);
+        this.txtOtros.setEnabled(false);
+        this.txtEfectivo.setEnabled(false);
+        this.txtTotal.setEnabled(false);
+        
+        this.btnBuscarSolicitud.setEnabled(false);
+        this.btnGuardar.setEnabled(false);
+        this.btnImprimir.setEnabled(false);
+    }
     public void activa(){
-           
-            this.txtNumSolicitud.setEditable(true);
-            this.btnBuscarSolicitud.setEnabled(true);
-        }
+        //Desactiva todos los botones
+        this.txtNumSolicitud.setEnabled(true);
+        this.txtNombreUsuario.setEnabled(true);
+        
+        this.chkBusqueda.setEnabled(true);
+        this.chkCalificacion.setEnabled(true);
+        this.chkTestimonio.setEnabled(true);
+        this.chkCopiaSimple.setEnabled(true);
+        this.chkCopiaCertificada.setEnabled(true);
+        this.chkCCPartidas.setEnabled(true);
+        this.chkConstancia.setEnabled(true);
+        this.chkExhibicion.setEnabled(true);
+        this.chkFotocopias.setEnabled(true);
+        this.chkTramiteAdministrativo.setEnabled(true);
+        this.chkRegularizacionEscritura.setEnabled(true);
+        this.chkTramiteRegistrosPublicos.setEnabled(true);
+        this.chkAnotacionMarginal.setEnabled(true);
+        this.chkPeritaje.setEnabled(true);
+        this.txtOtros.setEnabled(true);
+        this.txtEfectivo.setEnabled(true);
+        this.txtTotal.setEnabled(true);
+        
+        this.btnBuscarSolicitud.setEnabled(true);
+        this.btnGuardar.setEnabled(true);
+        this.btnImprimir.setEnabled(true);
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -86,7 +133,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnNuevo = new javax.swing.JButton();
-        lbRecibo = new javax.swing.JLabel();
+        lblNumeroRecibo = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -162,12 +209,14 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         txtTotalOtros = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnImprimir = new javax.swing.JButton();
         txtNumSolicitud = new javax.swing.JTextField();
         lblcodUsu = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 800));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -178,17 +227,22 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         jLabel2.setText("Recibi de ");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
-        btnNuevo.setBackground(new java.awt.Color(101, 67, 22));
+        btnNuevo.setBackground(new java.awt.Color(255, 204, 255));
         btnNuevo.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(0, 0, 51));
         btnNuevo.setText("NUEVO");
-        getContentPane().add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 42, 120, 30));
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 120, 30));
 
-        lbRecibo.setBackground(new java.awt.Color(51, 0, 0));
-        lbRecibo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lbRecibo.setForeground(new java.awt.Color(51, 0, 0));
-        lbRecibo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(lbRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(413, 11, 120, 30));
+        lblNumeroRecibo.setBackground(new java.awt.Color(51, 0, 0));
+        lblNumeroRecibo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblNumeroRecibo.setForeground(new java.awt.Color(51, 0, 0));
+        lblNumeroRecibo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(lblNumeroRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 120, 30));
 
         txtNombreUsuario.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtNombreUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -675,11 +729,16 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 580, -1, -1));
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 590, 120, 40));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("IMPRIMIR");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 610, -1, -1));
+        btnImprimir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnImprimir.setText("IMPRIMIR");
+        btnImprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 640, 120, 40));
 
         txtNumSolicitud.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtNumSolicitud.addActionListener(new java.awt.event.ActionListener() {
@@ -708,7 +767,15 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 640, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 690, 120, 30));
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1442,7 +1509,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNumSolicitudKeyTyped
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        frmRecibos Retorno=new frmRecibos();
+        frmMenu Retorno=new frmMenu();
         Retorno.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -1867,7 +1934,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
                 con.insertar("INSERT INTO recepcion.detallerecibo (codDetRec,numRecibo,concepto,cantidad,pUnitario,subtotal,fecha) VALUES (null,"+last_cod+",'"+concepto+"',"+cantidad+","+precio+","+subtotal+",now());");
                 con.cierraConexion();
             }
-            catch(Exception e)
+            catch(SQLException e)
             {
                     JOptionPane.showMessageDialog(rootPane, e.getMessage());
             }
@@ -1880,6 +1947,35 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         }
        
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImprimirActionPerformed
+        // TODO add your handling code here:
+        String numeroRecibo = this.lblNumeroRecibo.getText();
+        jasper.ejecutarReporte(numeroRecibo);
+    }//GEN-LAST:event_btnImprimirActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+        activa();
+        try{
+            con.conectar();
+            ResultSet res=con.consulta("SELECT max(numRec) FROM recibo;");
+            res.next();
+            numeroRecibo=Integer.parseInt(res.getString(1));
+            
+            con.cierraConexion();
+        }catch(SQLException e){
+            
+        }
+        nextNumero = numeroRecibo + 1;
+        this.lblNumeroRecibo.setText(nextNumero+"");
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.lblNumeroRecibo.setText("");
+        desactiva();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1918,7 +2014,9 @@ public class frmRecSolicitud extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarSolicitud;
+    private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnImprimir;
     private javax.swing.JButton btnNuevo;
     private javax.swing.JCheckBox chkAnotacionMarginal;
     private javax.swing.JCheckBox chkBusqueda;
@@ -1935,7 +2033,6 @@ public class frmRecSolicitud extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkTestimonio;
     private javax.swing.JCheckBox chkTramiteAdministrativo;
     private javax.swing.JCheckBox chkTramiteRegistrosPublicos;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1948,7 +2045,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lbCambia;
-    private javax.swing.JLabel lbRecibo;
+    private javax.swing.JLabel lblNumeroRecibo;
     private javax.swing.JLabel lblcodUsu;
     private javax.swing.JTextField txtCantidadAnotacionMarginal;
     private javax.swing.JTextField txtCantidadBusqueda;

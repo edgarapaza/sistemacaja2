@@ -67,7 +67,7 @@ public class frmLogin extends javax.swing.JFrame {
                 int respuesta = Integer.parseInt(valor);
                 if(respuesta == 1)
                 {
-                    frmRecibos Recibo=new frmRecibos();
+                    frmMenu Recibo=new frmMenu();
                     Recibo.setVisible(true);
                     dispose();
 
