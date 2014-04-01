@@ -1,11 +1,16 @@
 package sistemacaja;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Planificacion1
  */
 public class frmMenu extends javax.swing.JFrame {
-
+    
+    
+    conexion con = new conexion();
+    private PrintReportDiario jasper;
     /**
      * Creates new form frmRecibos
      */
@@ -53,6 +58,11 @@ public class frmMenu extends javax.swing.JFrame {
 
         btnReporteDiario.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnReporteDiario.setText("REPORTE DIARIO");
+        btnReporteDiario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReporteDiarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnReporteDiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
 
         btnReporteMensual.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -77,6 +87,12 @@ public class frmMenu extends javax.swing.JFrame {
         Recibo.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnRecivosDNIActionPerformed
+
+    private void btnReporteDiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteDiarioActionPerformed
+        // TODO add your handling code here:
+        String fecha = JOptionPane.showInputDialog(rootPane, "Ingrese Fecha (Año-Mes-dia)");
+        jasper.ejecutarReporte(fecha);
+    }//GEN-LAST:event_btnReporteDiarioActionPerformed
 
     /**
      * @param args the command line arguments
