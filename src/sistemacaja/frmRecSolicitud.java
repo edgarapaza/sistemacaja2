@@ -1,11 +1,13 @@
 
 package sistemacaja;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.management.Query.and;
 import javax.swing.JOptionPane;
         
 
@@ -62,16 +64,9 @@ public class frmRecSolicitud extends javax.swing.JFrame {
   
   
     public void RestaFinal()
-          {
-              
-              double z = Double.parseDouble(this.txtEfectivo.getText());
-              double y = Double.parseDouble(this.txtTotal.getText());
-              double resta = z-y;
-              
-              float rpta = (float) (Math.rint(resta*10)/10);
-              this.lbCambia.setText(rpta+"");
-            
-          }   
+    {
+        
+    }   
     public void desactiva(){
         //Desactiva todos los botones
         this.txtNumSolicitud.setEnabled(false);
@@ -123,7 +118,6 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         this.txtTotal.setEnabled(true);
         
         this.btnBuscarSolicitud.setEnabled(true);
-        this.btnGuardar.setEnabled(true);
         this.btnImprimir.setEnabled(true);
     }
     
@@ -666,6 +660,12 @@ public class frmRecSolicitud extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtEfectivoKeyPressed(evt);
             }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEfectivoKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtEfectivoKeyTyped(evt);
+            }
         });
         getContentPane().add(txtEfectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 110, 40));
 
@@ -674,6 +674,11 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 550, -1, -1));
 
         txtTotal.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        txtTotal.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtTotalPropertyChange(evt);
+            }
+        });
         getContentPane().add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 550, 80, 30));
 
         btnBuscarSolicitud.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -1484,8 +1489,12 @@ public class frmRecSolicitud extends javax.swing.JFrame {
 
     private void txtEfectivoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyPressed
        
-        this.RestaFinal();
-            
+        
+        //String text = this.txtEfectivo.getText();
+        //JOptionPane.showMessageDialog(rootPane, text);
+           
+        
+        
     }//GEN-LAST:event_txtEfectivoKeyPressed
 
     private void txtOtrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOtrosActionPerformed
@@ -1538,14 +1547,16 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         ********************************************************************************************
         */
         int last_cod =0;
-        int numerosolicitud = Integer.parseInt(this.txtNumSolicitud.getText());
+        String numerosolicitud = this.txtNumSolicitud.getText();
+        
         double total = Double.parseDouble(this.txtTotal.getText());
+        
         int codPersonal =  1101;
         int codUsuario = Integer.parseInt(this.lblcodUsu.getText());
         try{
             con.conectar();
             //Conectarse a la Base de Datos y ejecutar los SQL
-            con.insertar("INSERT INTO recibo (numRec, numSol, total,fecha,hora,anulado,codPer,codUsu) VALUES (null,"+numerosolicitud+","+total+",now(),now(),0,"+codPersonal+","+codUsuario+");");
+            con.insertar("INSERT INTO recibo (numRec, numSol, total,fecha,hora,anulado,codPer,codUsu) VALUES (null,'"+numerosolicitud+"',"+total+",now(),now(),0,"+codPersonal+","+codUsuario+");");
             
             ResultSet res1=con.consulta("select numRec from recibo order by numRec desc limit 0,1;");
             res1.next();
@@ -2001,6 +2012,51 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         String numeroRecibo = JOptionPane.showInputDialog("Escriba el Numero de Solicitud");
         jasper.ejecutarReporte(numeroRecibo);
     }//GEN-LAST:event_btnReImprimirActionPerformed
+
+    private void txtEfectivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyTyped
+        // TODO add your handling code here:
+        String text2 = this.txtEfectivo.getText();
+        
+        int resultado= text2.indexOf('.');
+        if(resultado != -1)
+        {
+            if("".equals(this.txtTotal.getText()))
+            {
+                JOptionPane.showMessageDialog(rootPane, "El total esta en CERO 0");
+                this.txtEfectivo.setText("");
+                this.txtTotal.setBackground(Color.yellow);
+            }else
+            {
+                
+                this.txtTotal.setBackground(Color.white);
+                
+                double z;
+                z = Double.parseDouble(this.txtEfectivo.getText());
+                double y;
+                y = Double.parseDouble(this.txtTotal.getText());
+                double resta = z-y;
+              
+                float rpta = (float) (Math.rint(resta*10)/10);
+                this.lbCambia.setText(rpta+"");
+                
+                this.btnGuardar.setEnabled(true);
+            }
+            
+        }else{
+            this.btnGuardar.setEnabled(false);
+            this.lbCambia.setText("");
+        }
+    }//GEN-LAST:event_txtEfectivoKeyTyped
+
+    private void txtEfectivoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEfectivoKeyReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtEfectivoKeyReleased
+
+    private void txtTotalPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtTotalPropertyChange
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtTotalPropertyChange
 
     /**
      * @param args the command line arguments
