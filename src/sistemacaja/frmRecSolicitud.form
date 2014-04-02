@@ -203,7 +203,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="CALIFICACI&#xd3;N"/>
+        <Property name="text" type="java.lang.String" value="CALIFICACION"/>
         <Property name="iconTextGap" type="int" value="30"/>
       </Properties>
       <Events>
@@ -305,7 +305,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="EXHIBICI&#xd3;N"/>
+        <Property name="text" type="java.lang.String" value="EXHIBICION"/>
         <Property name="iconTextGap" type="int" value="30"/>
       </Properties>
       <Events>
@@ -339,7 +339,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="TR&#xc1;MITE ADMINISTRATIVO"/>
+        <Property name="text" type="java.lang.String" value="TRAMITE ADMINISTRATIVO"/>
         <Property name="iconTextGap" type="int" value="30"/>
       </Properties>
       <Events>
@@ -356,7 +356,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="REGULARIZACI&#xd3;N DE ESCRITURA"/>
+        <Property name="text" type="java.lang.String" value="REGULARIZACION DE ESCRITURA"/>
         <Property name="iconTextGap" type="int" value="30"/>
       </Properties>
       <Events>
@@ -373,7 +373,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="TR&#xc1;MITE EN REGISTROS P&#xda;BLICOS"/>
+        <Property name="text" type="java.lang.String" value="TRAMITE EN REGISTROS PUBLICOS"/>
         <Property name="iconTextGap" type="int" value="30"/>
       </Properties>
       <Events>

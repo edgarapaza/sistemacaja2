@@ -1,5 +1,11 @@
 package sistemacaja;
 
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -89,9 +95,14 @@ public class frmMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRecivosDNIActionPerformed
 
     private void btnReporteDiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteDiarioActionPerformed
-        // TODO add your handling code here:
-        String fecha = JOptionPane.showInputDialog(rootPane, "Ingrese Fecha (Año-Mes-dia)");
-        jasper.ejecutarReporte(fecha);
+        try {
+            // TODO add your handling code here:
+            ///String fecha = JOptionPane.showInputDialog(rootPane, "Ingrese Fecha (Año-Mes-dia)");
+            //jasper.ejecutarReporte(fecha);
+            Desktop.getDesktop().browse(new URI("http://192.168.1.100/reportesDiarios"));
+        } catch (IOException | URISyntaxException ex) {
+            Logger.getLogger(frmMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnReporteDiarioActionPerformed
 
     /**

@@ -280,7 +280,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         getContentPane().add(chkBusqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 132, 306, -1));
 
         chkCalificacion.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        chkCalificacion.setText("CALIFICACIÓN");
+        chkCalificacion.setText("CALIFICACION");
         chkCalificacion.setIconTextGap(30);
         chkCalificacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -340,7 +340,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         getContentPane().add(chkConstancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 288, -1, -1));
 
         chkExhibicion.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        chkExhibicion.setText("EXHIBICIÓN");
+        chkExhibicion.setText("EXHIBICION");
         chkExhibicion.setIconTextGap(30);
         chkExhibicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,7 +360,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         getContentPane().add(chkFotocopias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
         chkTramiteAdministrativo.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        chkTramiteAdministrativo.setText("TRÁMITE ADMINISTRATIVO");
+        chkTramiteAdministrativo.setText("TRAMITE ADMINISTRATIVO");
         chkTramiteAdministrativo.setIconTextGap(30);
         chkTramiteAdministrativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,7 +370,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         getContentPane().add(chkTramiteAdministrativo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 366, -1, -1));
 
         chkRegularizacionEscritura.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        chkRegularizacionEscritura.setText("REGULARIZACIÓN DE ESCRITURA");
+        chkRegularizacionEscritura.setText("REGULARIZACION DE ESCRITURA");
         chkRegularizacionEscritura.setIconTextGap(30);
         chkRegularizacionEscritura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -380,7 +380,7 @@ public class frmRecSolicitud extends javax.swing.JFrame {
         getContentPane().add(chkRegularizacionEscritura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 392, -1, -1));
 
         chkTramiteRegistrosPublicos.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        chkTramiteRegistrosPublicos.setText("TRÁMITE EN REGISTROS PÚBLICOS");
+        chkTramiteRegistrosPublicos.setText("TRAMITE EN REGISTROS PUBLICOS");
         chkTramiteRegistrosPublicos.setIconTextGap(30);
         chkTramiteRegistrosPublicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
