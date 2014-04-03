@@ -6,7 +6,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +21,7 @@ public class frmMenu extends javax.swing.JFrame {
      */
     public frmMenu() {
         initComponents();
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -51,7 +51,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnReciboSolicitudesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReciboSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        getContentPane().add(btnReciboSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 380, 100));
 
         btnRecivosDNI.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnRecivosDNI.setText("RECIBOS POR DNI");
@@ -60,7 +60,7 @@ public class frmMenu extends javax.swing.JFrame {
                 btnRecivosDNIActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRecivosDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
+        getContentPane().add(btnRecivosDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 380, 100));
 
         btnReporteDiario.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnReporteDiario.setText("REPORTE DIARIO");
@@ -69,23 +69,23 @@ public class frmMenu extends javax.swing.JFrame {
                 btnReporteDiarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReporteDiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, -1, -1));
+        getContentPane().add(btnReporteDiario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, 380, 100));
 
         btnReporteMensual.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnReporteMensual.setText("REPORTE MENSUAL");
-        getContentPane().add(btnReporteMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
+        getContentPane().add(btnReporteMensual, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, -1, -1));
 
         btnAnularRecibo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         btnAnularRecibo.setText("ANULAR RECIBOS");
-        getContentPane().add(btnAnularRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
+        getContentPane().add(btnAnularRecibo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 270, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReciboSolicitudesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReciboSolicitudesActionPerformed
       frmRecSolicitud Recibo=new frmRecSolicitud();
-        Recibo.setVisible(true);
-        dispose();
+      Recibo.setVisible(true);
+        
     }//GEN-LAST:event_btnReciboSolicitudesActionPerformed
 
     private void btnRecivosDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecivosDNIActionPerformed
