@@ -1,4 +1,5 @@
 package sistemacaja;
+<<<<<<< HEAD
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -45,6 +46,13 @@ public class Main {
         frmLogin Login=new frmLogin();
         Login.setVisible(true);
         //System.exit(0);
+=======
+public class Main {
+
+    public static void main(String[] args) {
+        frmLogin Login=new frmLogin();
+        Login.setVisible(true);
+>>>>>>> 90c0bc22c8e437e387d20dd434fc47d20f8aa33d
     }
 
 }
