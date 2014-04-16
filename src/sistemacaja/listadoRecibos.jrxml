@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ce4506b1-757e-407f-a08e-b7a25b37fd6a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Servidor" uuid="85fde251-3485-4b58-8d0d-019179399ccd">
+		<queryString language="SQL">
+			<![CDATA[SELECT 
+r.numRec, r.numSol,r.total, r.fecha,
+d.concepto,
+CONCAT(u.nombre,' ',u.apePat,' ',apeMat) as nombres
+FROM recibo as r, detallerecibo as d , solicitudes as s, usuarios as u
+WHERE s.codUsu = u.codUsu and
+	  r.numSol = s.codSol and
+	  r.numRec = d.numRecibo and
+	  r.fecha LIKE '2014-03-27%'
+GROUP BY r.numRec;]]>
+		</queryString>
+		<field name="numRec" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="numSol" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="total" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fecha" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="concepto" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nombres" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="fecha" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 
+r.numRec, r.numSol,r.total, r.fecha,
+d.concepto,
+CONCAT(u.nombre,' ',u.apePat,' ',apeMat) as nombres
+FROM recibo as r, detallerecibo as d , solicitudes as s, usuarios as u
+WHERE s.codUsu = u.codUsu and
+	  r.numSol = s.codSol and
+	  r.numRec = d.numRecibo and
+	  r.fecha LIKE '$P!{fecha}%'
+GROUP BY r.numRec;]]>
+	</queryString>
+	<field name="numRec" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numSol" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fecha" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concepto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombres" class="java.lang.String"/>
+	<variable name="Total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{total}]]></variableExpression>
+		<initialValueExpression><![CDATA[0.0]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="103" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="0" width="320" height="20" uuid="479e78b5-6a75-4d5b-a053-6705efa1b7a4"/>
+				<text><![CDATA[HOJA DE INGRESOS: RECURSOS DIRECTAMENTE RECAUDADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="172" height="20" uuid="ebe9f844-cfa2-48e7-9d98-1ea1895760f6"/>
+				<text><![CDATA[PROGRAMA			:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="172" height="20" uuid="fb2bdb73-43a7-4428-b067-f2acb6362763"/>
+				<text><![CDATA[SUB PROGRAMA		:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="172" height="20" uuid="893345ad-7440-4e20-a0f0-b4d549a10b8a"/>
+				<text><![CDATA[ACTIVIDAD			:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="80" width="172" height="20" uuid="45db9920-9fae-4b53-ac8f-afecfc15e12a"/>
+				<text><![CDATA[COMPONENTE			:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="20" width="184" height="20" uuid="361c8b3b-7e6f-472d-9500-d83b538a1354"/>
+				<text><![CDATA[003 ADMINISTRACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="40" width="184" height="20" uuid="f4499094-074d-448f-bc20-b050c08dc2fa"/>
+				<text><![CDATA[006 ADMINISTRACION GENERAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="60" width="301" height="20" uuid="b9eb02a4-4ba5-4e7a-b8b4-eb4e0b32ebdc"/>
+				<text><![CDATA[100498 CONSERVACION Y VIGILANCIA DE DOCUMENTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="80" width="301" height="20" uuid="1ba71582-ddc1-4567-b2ec-e651a5869ea1"/>
+				<text><![CDATA[30166 ARCHIVO REGIONAL PUNO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="452" y="20" width="100" height="20" uuid="86b231c9-5915-4380-82e9-1e832448953a"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="26" y="2" width="100" height="20" uuid="a58a7837-2893-4e2d-8c93-24aada27bc96"/>
+				<text><![CDATA[Numero Recibo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="2" width="63" height="20" uuid="353932d9-8e8c-4fb7-b8d1-16b1631ccf92"/>
+				<text><![CDATA[Nº Solicitud ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="2" width="100" height="20" uuid="6cb84a77-3f17-4581-a76f-fe42747aa17a"/>
+				<text><![CDATA[Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="2" width="184" height="20" uuid="5675288f-6f69-4e9f-a0ad-53952ce76967"/>
+				<text><![CDATA[Nombres y Apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="2" width="82" height="20" uuid="32084fe2-d747-4de2-9ec9-932bf7490429"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="26" height="20" uuid="a9032363-47d1-4749-8403-147dc340bb4e"/>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="2" width="26" height="20" uuid="c3ff60d0-2122-456d-b969-1124c117939f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="26" y="2" width="79" height="20" uuid="044ad8b6-4a54-41b4-b199-af99351c583a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="105" y="2" width="84" height="20" uuid="7ff64c05-dff7-4f19-8048-ebb8a20cb83e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="189" y="2" width="100" height="20" uuid="8654802d-924f-49ae-98ac-01c8152e95be"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="289" y="2" width="184" height="20" uuid="ee19e01d-90c5-49f9-85a9-fe340dfe13ab"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="473" y="2" width="82" height="20" uuid="1c527792-ba70-4e81-8dd2-e597e8d15c26"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="36" y="0" width="57" height="20" uuid="138ce024-3a4f-4422-9292-34af8bb09995"/>
+				<textFieldExpression><![CDATA[$F{numRec}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="0" width="74" height="20" uuid="ac36f95b-854e-4088-974f-a0c5038e6ae2"/>
+				<textFieldExpression><![CDATA[$F{numSol}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="0" width="95" height="20" uuid="b41e5933-ba6b-48da-a0ea-bcb978210dac"/>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="294" y="0" width="179" height="20" uuid="fd6b878c-e25e-4188-a820-dc41f1432646"/>
+				<textFieldExpression><![CDATA[$F{nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="490" y="0" width="62" height="20" uuid="5c13e031-0806-416b-8ddc-91a63d7b3836"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="0" width="26" height="20" uuid="86d5476f-d882-4790-bfc5-785df3f12ebe"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="105" y="0" width="84" height="20" uuid="45ee56c5-e134-4f65-b9c9-0f2bc5a1865c"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="189" y="0" width="100" height="20" uuid="a7cf6014-acb1-4e22-956b-2975d8ba21cf"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="290" y="0" width="183" height="20" uuid="3a8cba11-dc4f-45dc-a5a5-04515c9999db"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="473" y="0" width="82" height="20" uuid="36bec02a-c1a2-425b-9f2c-f30e5b62d34d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement mode="Transparent" x="26" y="0" width="79" height="20" uuid="3567976f-b0a8-40b6-8038-c95d62515b61"/>
+			</rectangle>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement x="219" y="17" width="80" height="20" uuid="749d8b43-125e-4f8c-b0cb-fcf2109c0526"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="299" y="17" width="40" height="20" uuid="fd762f00-ae30-424f-ba63-eaa81417c668"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="485" y="0" width="70" height="20" uuid="c890c249-4ede-4702-9bac-3ae666f55943"/>
+				<textFieldExpression><![CDATA[$V{Total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

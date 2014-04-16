@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="320" pageHeight="450" columnWidth="280" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a09f1ed9-d214-4796-b010-1596bed06547">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Servidor" uuid="a16a151c-2f04-4532-a0bd-21ccf3bea313">
+		<queryString language="SQL">
+			<![CDATA[select 
+r.numRec, r.total,r.fecha,
+
+d.concepto, d.subtotal, d.cantidad, d.pUnitario,
+
+s.codSol, 
+
+concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
+
+from detallerecibo as d, solicitudes as s, usuarios as u, recibo as r
+where r.numSol = s.codSol and
+      u.codUsu = s.codUsu and
+	  	
+	  r.numRec = d.numRecibo and
+      r.numRec = 12]]>
+		</queryString>
+		<field name="numRec" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="total" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="fecha" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="concepto" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="subtotal" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="cantidad" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="pUnitario" class="java.lang.Double">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="codSol" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="nombre" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+	</subDataset>
+	<parameter name="numeroRecibo" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 
+r.numRec, r.total,r.fecha,
+
+d.concepto, d.subtotal, d.cantidad, d.pUnitario,
+
+s.codSol, 
+
+concat(u.nombre,' ', u.apePat,' ', u.apeMat) as nombre
+
+from detallerecibo as d, solicitudes as s, usuarios as u, recibo as r
+where r.numSol = s.codSol and
+      u.codUsu = s.codUsu and
+	  	
+	  r.numRec = d.numRecibo and
+      r.numRec = $P{numeroRecibo};]]>
+	</queryString>
+	<field name="numRec" class="java.lang.Integer"/>
+	<field name="total" class="java.lang.Double"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="concepto" class="java.lang.String"/>
+	<field name="subtotal" class="java.lang.Double"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="pUnitario" class="java.lang.Double"/>
+	<field name="codSol" class="java.lang.Integer"/>
+	<field name="nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="153" splitType="Stretch">
+			<textField>
+				<reportElement x="53" y="109" width="227" height="20" uuid="f51084b6-a74c-4d4d-8b83-dd65d6490e91"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="false"/>
+					<paragraph firstLineIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="81" width="78" height="20" uuid="fa9b9d2a-86a6-4f5b-b071-df8839552378"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codSol}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="172" y="0" width="27" height="13" uuid="7465616c-f209-423d-a6b5-dd60c989841f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pUnitario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="52" height="13" uuid="3df4bcf0-9d5c-40de-a91d-4652320d4f65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="0" width="28" height="13" uuid="85ceb4be-4c39-49ff-851b-80c365c9c47f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="0" width="77" height="13" uuid="8bd2c00f-2685-4538-90dd-0a385bc93da7"/>
+				<textElement>
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concepto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="70" splitType="Stretch">
+			<textField>
+				<reportElement x="35" y="56" width="100" height="13" uuid="748d6667-44bf-4fb9-b981-f382016f1f76"/>
+				<textElement>
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="199" y="9" width="45" height="20" uuid="3f979d6b-8122-4e97-a0f9-0294db049260"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
